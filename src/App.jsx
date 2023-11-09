@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { Routes, Route, Link, useNavigate } from 'react-router-dom'
-import Category from './pages/category/Category'
 import CategoryDetail from './pages/category/CategoryDetail'
+import LazyLoad from './lazy'
 export default function App() {
   const navigate = useNavigate();
   return (
@@ -16,7 +16,8 @@ export default function App() {
         <Routes>
           <Route path='/' element={<>Home Page</>} />
           <Route path='/about' element={<>About Page</>} />
-          <Route path='/category' element={<Category />}>
+          {/* <Route path='/category' element={<Category />}></Route> */}
+          <Route path='/category' element={LazyLoad(() => import("./pages/category/Category"))()}>
             <Route path=':categoryNameABC' element={<CategoryDetail />}></Route>
             <Route path='test' element={<>Test</>}></Route>
         
