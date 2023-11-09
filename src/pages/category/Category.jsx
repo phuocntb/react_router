@@ -7,6 +7,7 @@ export default function Category() {
         <Link to="laptop">Laptop</Link>
         <Link to="mobile">Mobile</Link>
         <Link to="other">Other</Link>
+        <Link to="test">Other</Link>
         <br />
         ................
         <Outlet/>
